@@ -11,7 +11,7 @@ describe("HomeScreen", () => {
     );
   });
   it("renders the home screen", () => {
-    const homeScreen = screen.getByText(/home screen/i);
+    const homeScreen = screen.getByText(/tv show tracker/i);
     expect(homeScreen).toBeInTheDocument();
   });
 });
