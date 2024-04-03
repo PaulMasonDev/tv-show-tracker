@@ -11,7 +11,9 @@ export const ResultsDisplay = () => {
           return (
             <div key={result.id} className={styles["result"]}>
               <h3>{result.name}</h3>
-              {result.image && <img src={result.image.medium} width={200} />}
+              {result.image && (
+                <img src={result.image.medium} width={200} alt={result.name} />
+              )}
             </div>
           );
         })}
