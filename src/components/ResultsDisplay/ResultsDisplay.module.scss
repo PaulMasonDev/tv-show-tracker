@@ -1,0 +1,11 @@
+.results-wrapper {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+
+.results-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
