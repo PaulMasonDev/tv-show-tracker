@@ -1,7 +1,4 @@
-import {
-  getWatchListFromStorage,
-  setWatchListInStorage,
-} from "../../utils/storage/storage";
+import { setWatchListInStorage } from "../../utils/storage/storage";
 import { useTvShowContext } from "../TvShowContext/TvShowContext";
 import styles from "./ResultsDisplay.module.scss";
 
@@ -67,6 +64,7 @@ export const ResultsDisplay = () => {
               </div>
             );
           }
+          return null;
         })}
       </div>
     </div>

@@ -9,10 +9,7 @@ import {
   useState,
 } from "react";
 import { getTvShowByQuery, Show } from "../../client-library/tv-maze/tv-maze";
-import {
-  getWatchListFromStorage,
-  setWatchListInStorage,
-} from "../../utils/storage/storage";
+import { getWatchListFromStorage } from "../../utils/storage/storage";
 
 type TVResult = Show;
 
