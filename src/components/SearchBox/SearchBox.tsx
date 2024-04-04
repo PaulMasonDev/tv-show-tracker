@@ -9,6 +9,7 @@ export const SearchBox = () => {
       <h2>Search Box</h2>
       <input
         className={styles["search-input"]}
+        role="searchbox"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />

@@ -36,3 +36,13 @@
 .info-panel {
   margin-left: 0.5rem;
 }
+
+.action-bar {
+  display: flex;
+
+  button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+}

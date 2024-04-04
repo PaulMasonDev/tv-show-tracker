@@ -9,6 +9,10 @@ import {
   useState,
 } from "react";
 import { getTvShowByQuery, Show } from "../../client-library/tv-maze/tv-maze";
+import {
+  getWatchListFromStorage,
+  setWatchListInStorage,
+} from "../../utils/storage/storage";
 
 type TVResult = Show;
 
@@ -17,6 +21,8 @@ interface TvShowContextType {
   setSearchTerm: Dispatch<SetStateAction<string>>;
   resultsDisplay: TVResult[];
   setResultsDisplay: Dispatch<SetStateAction<TVResult[]>>;
+  watchList: string[];
+  setWatchList: Dispatch<SetStateAction<string[]>>;
 }
 
 export const TvShowContext = createContext<TvShowContextType | undefined>(
@@ -30,6 +36,12 @@ interface TvShowProviderProperties {
 export const TvShowProvider = ({ children }: TvShowProviderProperties) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [resultsDisplay, setResultsDisplay] = useState<TVResult[]>([]);
+  const [watchList, setWatchList] = useState<string[]>([]);
+
+  useEffect(() => {
+    const value = getWatchListFromStorage();
+    if (value) setWatchList(value);
+  }, []);
 
   useEffect(() => {
     const getTvShowByQueryEffect = async () => {
@@ -49,8 +61,17 @@ export const TvShowProvider = ({ children }: TvShowProviderProperties) => {
       setSearchTerm,
       resultsDisplay,
       setResultsDisplay,
+      watchList,
+      setWatchList,
     }),
-    [searchTerm, setSearchTerm, resultsDisplay, setResultsDisplay]
+    [
+      searchTerm,
+      setSearchTerm,
+      resultsDisplay,
+      setResultsDisplay,
+      watchList,
+      setWatchList,
+    ]
   );
 
   return (
