@@ -11,7 +11,7 @@ describe("ResultsDisplay", () => {
     );
   });
   it("renders the results display", () => {
-    const resultsDisplay = screen.getByText(/results display/i);
+    const resultsDisplay = screen.getByTestId("results-wrapper");
     expect(resultsDisplay).toBeInTheDocument();
   });
 });
